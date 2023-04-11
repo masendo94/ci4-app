@@ -35,6 +35,7 @@ $routes->post('/login', 'LoginController::login');
 
 // presensi user
 $routes->get('/home', 'PresensiController::index');
+$routes->get('/presensi', 'PresensiController::presensi');
 
 /*
  * --------------------------------------------------------------------
