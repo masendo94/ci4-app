@@ -33,14 +33,21 @@
                 <img src="/assets/img/login.png" alt="image" class="form-image">
             </div>
             <div class="section mt-1">
-                <h1>E-Presensi</h1>
+                <h2>E-Presensi</h2>
+            </div>
+            <div class="section">
+                <?php if(session()->getFlashdata('pesan')) :?>
+                <div class="alert alert-warning center small" style="pading:2px !important;">
+                    <?= session()->getFlashdata('pesan') ?>
+                </div>
+                <?php endif ?>
             </div>
             <div class="section mt-1 mb-5">
                 <form action="/login" method="post">
                     <?= csrf_field()?>
                     <div class="form-group boxed">
                         <div class="input-wrapper">
-                            <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                            <input type="text" class="form-control is-invalid" id="username" placeholder="Username" name="username">
                             <i class="clear-input">
                                 <ion-icon name="close-circle"></ion-icon>
                             </i>
@@ -49,7 +56,7 @@
 
                     <div class="form-group boxed">
                         <div class="input-wrapper">
-                            <input type="password" class="form-control" id="password1" placeholder="Password" name="password">
+                            <input type="password" class="form-control is-invalid" id="password1" placeholder="Password" name="password">
                             <i class="clear-input">
                                 <ion-icon name="close-circle"></ion-icon>
                             </i>

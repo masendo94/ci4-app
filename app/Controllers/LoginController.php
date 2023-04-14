@@ -27,9 +27,17 @@ class LoginController extends BaseController
         
         if($karyawan){
             // login berhasil
+            // buat data di sessian
+            $sesionData = [
+                'username'  => $karyawan['username'] ,
+                'nik'     => $karyawan['nik'],
+                'logged_in' => true,
+            ];
+            session()->set($sesionData);
             return redirect()->to('/home');
         }else{
             //login gagal
+            session()->setFlashdata('pesan', 'LOGIN GAGAL');
             return redirect()->to('/');
         }
         

@@ -8,7 +8,7 @@
                     <img src="assets/img/sample/avatar/avatar1.jpg" alt="avatar" class="imaged w64 rounded">
                 </div>
                 <div id="user-info">
-                    <h2 id="user-name">Endo</h2>
+                    <h2 id="user-name"><?= strtoupper(session()->get('username')) ?></h2>
                     <span id="user-role">Orang Biasa</span>
                 </div>
             </div>
@@ -99,20 +99,12 @@
                 </div>
             </div>
 
-            <div class="rekappresence">
-                <div id="chartdiv"></div>
-            </div>
             <div class="presencetab mt-2">
                 <div class="tab-pane fade show active" id="pilled" role="tabpanel">
                     <ul class="nav nav-tabs style1" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
-                                Bulan Ini
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
-                                Leaderboard
+                                HARI INI 20 JAN 2023
                             </a>
                         </li>
                     </ul>
@@ -120,164 +112,21 @@
                 <div class="tab-content mt-2" style="margin-bottom:100px;">
                     <div class="tab-pane fade show active" id="home" role="tabpanel">
                         <ul class="listview image-listview">
+                        <?php for($i=1; $i<10; $i++) :?>
                             <li>
-                                <div class="item">
+                                <div class="item"> 
                                     <div class="icon-box bg-primary">
-                                        <ion-icon name="image-outline" role="img" class="md hydrated"
-                                            aria-label="image outline"></ion-icon>
+                                        <div class="avatar">
+                                            <img src="assets/img/sample/avatar/avatar1.jpg"  class="imaged rounded" width="40px">
+                                        </div>
                                     </div>
                                     <div class="in">
-                                        <div>Photos</div>
-                                        <span class="badge badge-danger">10</span>
+                                        <div>ENDO</div>
+                                        <span class="badge badge-success">08:00</span>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="item">
-                                    <div class="icon-box bg-secondary">
-                                        <ion-icon name="videocam-outline" role="img" class="md hydrated"
-                                            aria-label="videocam outline"></ion-icon>
-                                    </div>
-                                    <div class="in">
-                                        <div>Videos</div>
-                                        <span class="text-muted">None</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item">
-                                    <div class="icon-box bg-danger">
-                                        <ion-icon name="musical-notes-outline" role="img" class="md hydrated"
-                                            aria-label="musical notes outline"></ion-icon>
-                                    </div>
-                                    <div class="in">
-                                        <div>Music</div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item">
-                                    <div class="icon-box bg-danger">
-                                        <ion-icon name="musical-notes-outline" role="img" class="md hydrated"
-                                            aria-label="musical notes outline"></ion-icon>
-                                    </div>
-                                    <div class="in">
-                                        <div>Music</div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item">
-                                    <div class="icon-box bg-danger">
-                                        <ion-icon name="musical-notes-outline" role="img" class="md hydrated"
-                                            aria-label="musical notes outline"></ion-icon>
-                                    </div>
-                                    <div class="in">
-                                        <div>Music</div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item">
-                                    <div class="icon-box bg-danger">
-                                        <ion-icon name="musical-notes-outline" role="img" class="md hydrated"
-                                            aria-label="musical notes outline"></ion-icon>
-                                    </div>
-                                    <div class="in">
-                                        <div>Music</div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item">
-                                    <div class="icon-box bg-danger">
-                                        <ion-icon name="musical-notes-outline" role="img" class="md hydrated"
-                                            aria-label="musical notes outline"></ion-icon>
-                                    </div>
-                                    <div class="in">
-                                        <div>Music</div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item">
-                                    <div class="icon-box bg-danger">
-                                        <ion-icon name="musical-notes-outline" role="img" class="md hydrated"
-                                            aria-label="musical notes outline"></ion-icon>
-                                    </div>
-                                    <div class="in">
-                                        <div>Music</div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item">
-                                    <div class="icon-box bg-danger">
-                                        <ion-icon name="musical-notes-outline" role="img" class="md hydrated"
-                                            aria-label="musical notes outline"></ion-icon>
-                                    </div>
-                                    <div class="in">
-                                        <div>Music</div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item">
-                                    <div class="icon-box bg-danger">
-                                        <ion-icon name="musical-notes-outline" role="img" class="md hydrated"
-                                            aria-label="musical notes outline"></ion-icon>
-                                    </div>
-                                    <div class="in">
-                                        <div>Music</div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel">
-                        <ul class="listview image-listview">
-                            <li>
-                                <div class="item">
-                                    <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="image">
-                                    <div class="in">
-                                        <div>Edward Lindgren</div>
-                                        <span class="text-muted">Designer</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item">
-                                    <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="image">
-                                    <div class="in">
-                                        <div>Emelda Scandroot</div>
-                                        <span class="badge badge-primary">3</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item">
-                                    <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="image">
-                                    <div class="in">
-                                        <div>Henry Bove</div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item">
-                                    <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="image">
-                                    <div class="in">
-                                        <div>Henry Bove</div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item">
-                                    <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="image">
-                                    <div class="in">
-                                        <div>Henry Bove</div>
-                                    </div>
-                                </div>
-                            </li>
+                            <?php endfor; ?>
                         </ul>
                     </div>
 
