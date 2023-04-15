@@ -43,6 +43,7 @@
                 <?php endif ?>
             </div>
             <div class="section mt-1 mb-5">
+                <?= $validation->listErrors()?>
                 <form action="/login" method="post">
                     <?= csrf_field()?>
                     <div class="form-group boxed">

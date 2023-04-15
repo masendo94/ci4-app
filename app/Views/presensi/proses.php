@@ -3,6 +3,21 @@
 
 <?= $this->section('content') ?>
 
+<link rel="manifest" href="__manifest.json">
+    <style>
+            .webcame, .webcame video {
+            width: 100% !important;
+            height: auto !important;
+            margin: auto;
+            display: inline-block;
+            border-radius: 10px;
+            }
+
+            #map {
+            height: 300px;
+            }
+            </style>
+
 <!-- App Header -->
 <div class="appHeader bg-primary text-light">
         <div class="left">
@@ -38,6 +53,9 @@
 
         </div>
 
+        <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+        <script src="assets/js/lib/webcame.js"></script>
+    <script src="assets/maps/leaflet.js"></script>
         <script>
       $(function(){
          //untuk webcam
@@ -83,6 +101,14 @@
             function errorCallback(){
 
             }
+
+            // proses presensi
+            $('#absensi').on('click', function(){
+                Webcam.snap(function(uri){
+                    const image = uri;
+                    console.log(image);
+                })
+            })
       })
     </script>
 

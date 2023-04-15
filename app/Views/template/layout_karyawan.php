@@ -17,20 +17,7 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/192x192.png">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="manifest" href="__manifest.json">
-    <style>
-            .webcame, .webcame video {
-            width: 100% !important;
-            height: auto !important;
-            margin: auto;
-            display: inline-block;
-            border-radius: 10px;
-            }
-
-            #map {
-            height: 300px;
-            }
-            </style>
+    
 </head>
 
 <body style="background-color:#e9ecef;">
@@ -75,9 +62,6 @@
     <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
     <!-- Base Js File -->
     <script src="assets/js/base.js"></script>
-
-    <script src="assets/js/lib/webcame.js"></script>
-    <script src="assets/maps/leaflet.js"></script>
 
     <script>
         am4core.ready(function () {

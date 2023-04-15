@@ -15,13 +15,26 @@ class LoginController extends BaseController
 
     public function index()
     {
-        return view('login/index');
+        session();
+        $data = [
+            'validation' => \Config\Services::validation()
+        ];
+        return view('login/index', $data);
     }
 
     public function login()
     {
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
+
+        if(!$this->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ])){
+            $validation = \Config\Services::validation();
+            // dd($validation->listErrors());
+            return redirect()->to('/')->withInput()->with('validation', $validation);
+        }
 
         $karyawan = $this->karyawanModel->where(['username' => $username, 'password' => $password])->first();
         
