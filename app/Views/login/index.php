@@ -43,15 +43,17 @@
                 <?php endif ?>
             </div>
             <div class="section mt-1 mb-5">
-                <?= $validation->listErrors()?>
                 <form action="/login" method="post">
                     <?= csrf_field()?>
                     <div class="form-group boxed">
                         <div class="input-wrapper">
-                            <input type="text" class="form-control is-invalid" id="username" placeholder="Username" name="username">
+                            <input type="text" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : '' ?> " id="username" placeholder="Username" name="username" autofocus>
                             <i class="clear-input">
                                 <ion-icon name="close-circle"></ion-icon>
                             </i>
+                        </div>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('username')?>
                         </div>
                     </div>
 

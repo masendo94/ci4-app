@@ -19,6 +19,7 @@ class LoginController extends BaseController
         $data = [
             'validation' => \Config\Services::validation()
         ];
+
         return view('login/index', $data);
     }
 
@@ -28,12 +29,22 @@ class LoginController extends BaseController
         $password = $this->request->getVar('password');
 
         if(!$this->validate([
-            'username' => 'required',
-            'password' => 'required'
+            'username' => [
+                'rules' => 'required',
+                'errors' => ['required' => '{field} harus di isi' ]
+            ],
+            'password' => [
+                'rules' => 'required',
+                'errors' => ['required' => '{field} harus di isi' ]
+            ]
+
         ])){
-            $validation = \Config\Services::validation();
+            $data = [
+                'validation' => \Config\Services::validation()
+            ];
             // dd($validation->listErrors());
-            return redirect()->to('/')->withInput()->with('validation', $validation);
+            // return redirect()->to('/')->withInput()->with('validation', $validation);
+            return view('login/index', $data);
         }
 
         $karyawan = $this->karyawanModel->where(['username' => $username, 'password' => $password])->first();
