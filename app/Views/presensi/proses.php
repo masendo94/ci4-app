@@ -31,6 +31,7 @@
     <!-- * App Header -->
 
     <div class="section full mt-2">
+        <!-- <form action="/presensi" method="POST"> -->
             <div class="row" style="margin-top:65px;">
                 <div class="col">
                     <input type="hidden" name="lokasi" id="lokasi">
@@ -40,7 +41,8 @@
 
             <div class="row">
                 <div class="col">
-                    <button class="btn btn-primary btn-block" id="absensi"> <ion-icon name="camera-outline"></ion-icon> Absen Masuk</button>
+                    <button tyoe="submit" class="btn btn-primary btn-block" id="take-apsen" > <ion-icon name="camera-outline"></ion-icon> Absen Masuk</button>
+        <!-- </form> -->
                 </div>
             </div>
 
@@ -103,10 +105,29 @@
             }
 
             // proses presensi
-            $('#absensi').on('click', function(){
+            $('#take-apsen').on('click', function(){
                 Webcam.snap(function(uri){
                     const image = uri;
-                    console.log(image);
+                    const lokasi = $('#lokasi').val();
+                    // console.log(image);
+
+                    // input data dengan ajax
+                    $.ajax({
+                        url : '/presensi',
+                        method : 'POST',
+                        data : {
+                            image : image,
+                            lokasi : lokasi
+                        },
+                        dataType : 'JSON',
+                        success : (hasil) => {
+                            console.log(hasil);
+                        },
+                        error : () => {
+                            alert('gagal')
+                        }
+
+                    })
                 })
             })
       })

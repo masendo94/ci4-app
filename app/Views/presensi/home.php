@@ -1,6 +1,7 @@
 <?= $this->extend('template/layout_karyawan') ?>
 
 <?= $this->section('content') ?>
+<?= base_url() .'image'.$user['foto_masuk']; die;?>
         
         <div class="section" id="user-section">
             <div id="user-detail">
@@ -71,11 +72,13 @@
                             <div class="card-body">
                                 <div class="presencecontent">
                                     <div class="iconpresence">
-                                        <ion-icon name="camera"></ion-icon>
+                                    <div class="avatar">
+                                            <img src="<?= APPPATH .'/image/'.$user['foto_masuk']?>"  class="imaged rounded" width="40px">
+                                        </div>
                                     </div>
                                     <div class="presencedetail">
                                         <h4 class="presencetitle">Masuk</h4>
-                                        <span>07:00</span>
+                                        <span><?=$user['jam_masuk']?></span>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +93,7 @@
                                     </div>
                                     <div class="presencedetail">
                                         <h4 class="presencetitle">Pulang</h4>
-                                        <span>12:00</span>
+                                        <span><?=$user['jam_pulang']?></span>
                                     </div>
                                 </div>
                             </div>
