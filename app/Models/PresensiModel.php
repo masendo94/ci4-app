@@ -10,6 +10,14 @@ class PresensiModel extends Model
     protected $primaryKey       = 'id';
     protected $allowedFields = ['nik','jam_masuk','jam_pulang','lokasi_masuk','lokasi_pulang','foto_masuk','foto_pulang','status','terlambat','jml_terlambat','sift','tgl_presensi'];
 
+    public function cekAbsen($nik, $jenis){
+        if($jenis == 'status'){
+            return $this->where(['nik' => $nik, 'status' => 0 ])->first();
+        }
+
+        return $this->where(['nik' => $nik, 'tgl_presensi' => date('Y-m-d') ])->first();
+    }
+
     
 
 }

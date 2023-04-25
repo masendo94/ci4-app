@@ -1,5 +1,5 @@
 <div class="appBottomMenu">
-        <a href="/home" class="item">
+        <a href="<?= base_url() ?>/home" class="item">
             <div class="col">
                 <ion-icon name="file-tray-full-outline" role="img" class="md hydrated"
                     aria-label="file tray full outline"></ion-icon>
@@ -13,7 +13,7 @@
                 <strong>REKAP</strong>
             </div>
         </a>
-        <a href="/presensi" class="item">
+        <a href="<?= base_url() ?>/presensi" class="item">
             <div class="col">
                 <div class="action-button large">
                     <ion-icon name="camera" role="img" class="md hydrated" aria-label="add outline"></ion-icon>

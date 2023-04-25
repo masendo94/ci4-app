@@ -41,7 +41,7 @@
 
             <div class="row">
                 <div class="col">
-                    <button tyoe="submit" class="btn btn-primary btn-block" id="take-apsen" > <ion-icon name="camera-outline"></ion-icon> Absen Masuk</button>
+                    <button tyoe="submit" class="btn <?= ($user) ? 'btn-danger' : 'btn-primary' ?> btn-block" id="take-apsen" > <ion-icon name="camera-outline"></ion-icon> <?= ($user) ? 'Absen Pulang' : 'Absen Masuk' ?></button>
         <!-- </form> -->
                 </div>
             </div>
@@ -53,13 +53,22 @@
                 </div>
             </div>
 
+            <audio id="sound-masuk">
+                <source src="<?= base_url() ?>assets/sound/masuk.mp3" type="audio/mpeg">
+            </audio>
+
+            <audio id="sound-pulang">
+                <source src="<?= base_url() ?>assets/sound/pulang.mp3" type="audio/mpeg">
+            </audio>
+
         </div>
 
-        <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
-        <script src="assets/js/lib/webcame.js"></script>
-    <script src="assets/maps/leaflet.js"></script>
+        <script src="<?= base_url() ?>/assets/js/lib/jquery-3.4.1.min.js"></script>
+        <script src="<?= base_url() ?>/assets/js/lib/webcame.js"></script>
+    <script src="<?= base_url() ?>/assets/maps/leaflet.js"></script>
         <script>
       $(function(){
+
          //untuk webcam
          Webcam.set({
           height : 860,
@@ -113,7 +122,7 @@
 
                     // input data dengan ajax
                     $.ajax({
-                        url : '/presensi',
+                        url : '<?= base_url() ?>/presensi',
                         method : 'POST',
                         data : {
                             image : image,
@@ -121,7 +130,15 @@
                         },
                         dataType : 'JSON',
                         success : (hasil) => {
-                            console.log(hasil);
+                            const sound = document.getElementById(`sound-${hasil.jenis}`);
+                            sound.play();
+                            Swal.fire(
+                                  hasil.status,
+                                  hasil.pesan,
+                                  hasil.icon
+                                )
+                            // setTimeout(
+                            //     window.location.href = '<?= base_url() ?>/home' ,10000)
                         },
                         error : () => {
                             alert('gagal')

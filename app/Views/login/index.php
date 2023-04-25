@@ -13,7 +13,7 @@
     <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
     <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/192x192.png">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
 </head>
 
 <body class="bg-white">
@@ -30,7 +30,7 @@
 
         <div class="login-form mt-1">
             <div class="section">
-                <img src="/assets/img/login.png" alt="image" class="form-image">
+                <img src="<?=base_url()?>/assets/img/login.png" alt="image" class="form-image">
             </div>
             <div class="section mt-1">
                 <h2>E-Presensi</h2>
@@ -43,7 +43,7 @@
                 <?php endif ?>
             </div>
             <div class="section mt-1 mb-5">
-                <form action="/login" method="post">
+                <form action="<?=base_url()?>/login" method="post">
                     <?= csrf_field()?>
                     <div class="form-group boxed">
                         <div class="input-wrapper">
