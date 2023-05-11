@@ -34,7 +34,7 @@
         <!-- <form action="/presensi" method="POST"> -->
             <div class="row" style="margin-top:65px;">
                 <div class="col">
-                    <input type="text" name="lokasi" id="lokasi">
+                    <input type="hidden" name="lokasi" id="lokasi">
                     <div class="webcame"> </div>
                 </div>
             </div>
@@ -59,6 +59,10 @@
 
             <audio id="sound-pulang">
                 <source src="<?= base_url() ?>public/assets/sound/pulang.mp3" type="audio/mpeg">
+            </audio>
+
+            <audio id="sound-radius">
+                <source src="<?= base_url() ?>public/assets/sound/diluar.mp3" type="audio/mpeg">
             </audio>
 
         </div>
@@ -100,11 +104,11 @@
 
             // menambahkan lingkaran radius
             // latitude dan longitude diisi dengan lokasi kantor
-            const circle = L.circle([data.coords.latitude, data.coords.longitude], {
+            const circle = L.circle([<?=$kantor['latitude_kantor']?>, <?=$kantor['longitude_kantor']?>], {
                         color: 'green',
                         fillColor: 'green',
                         fillOpacity: 0.5,
-                        radius: 30 // satuan dalam meter
+                        radius: <?=$kantor['radius']?> // satuan dalam meter
                     }).addTo(map);
 
             }
