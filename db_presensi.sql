@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Apr 2023 pada 09.30
+-- Waktu pembuatan: 11 Bulan Mei 2023 pada 10.21
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.0.28
 
@@ -29,8 +29,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbl_cabang` (
   `id` int(11) NOT NULL,
-  `nama_cabang` varchar(100) NOT NULL
+  `nama_cabang` varchar(100) NOT NULL,
+  `alamat_cabang` varchar(100) NOT NULL,
+  `lokasi_cabang` varchar(100) NOT NULL,
+  `radius_absensi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tbl_cabang`
+--
+
+INSERT INTO `tbl_cabang` (`id`, `nama_cabang`, `alamat_cabang`, `lokasi_cabang`, `radius_absensi`) VALUES
+(1, 'kantor induk usp', 'brodong lamongan', '-6.872487203207259, 112.28034471225683', 50);
 
 -- --------------------------------------------------------
 
@@ -100,9 +110,7 @@ CREATE TABLE `tbl_presensi` (
 --
 
 INSERT INTO `tbl_presensi` (`id`, `nik`, `tgl_presensi`, `jam_masuk`, `jam_pulang`, `foto_masuk`, `foto_pulang`, `lokasi_masuk`, `lokasi_pulang`, `status`, `terlambat`, `jml_terlambat`, `sift`) VALUES
-(1, '35241010070002', '2023-04-18', '04:32:55', '00:00:00', 'percobaan.png', '', '-6.872963749999999,112.2792165', '', 0, 0, 0, 1),
-(2, '35241010070002', '2023-04-18', '04:36:34', '00:00:00', 'percobaan.png', '', '-6.872963749999999,112.2792165', '', 0, 0, 0, 1),
-(3, '35241010070002', '2023-04-19', '05:25:59', '00:00:00', '35241010070002-2023-04-19-M.png', '', '-6.872958,112.279265', '', 0, 0, 0, 1);
+(3, '35241010070002', '2023-05-11', '15:13:18', '00:00:00', '35241010070002-2023-05-11-M.png', 'avatar.jpg', '-6.872962466839669,112.27924709558843', '', 0, 0, 0, 1);
 
 --
 -- Indexes for dumped tables
@@ -140,7 +148,7 @@ ALTER TABLE `tbl_presensi`
 -- AUTO_INCREMENT untuk tabel `tbl_cabang`
 --
 ALTER TABLE `tbl_cabang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_jabatan`
