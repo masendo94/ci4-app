@@ -13,7 +13,7 @@
     <meta name="keywords" content="bootstrap 4, mobile template, cordova, phonegap, mobile, html" />
     <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/192x192.png">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?= base_url() ?>public/assets/css/style.css">
 </head>
 
 <body class="bg-white">
@@ -30,7 +30,7 @@
 
         <div class="login-form mt-1">
             <div class="section">
-                <img src="<?=base_url()?>/assets/img/login.png" alt="image" class="form-image">
+                <img src="<?=base_url()?>public/assets/img/login.png" alt="image" class="form-image">
             </div>
             <div class="section mt-1">
                 <h2>E-Presensi</h2>
@@ -82,18 +82,18 @@
 
     <!-- ///////////// Js Files ////////////////////  -->
     <!-- Jquery -->
-    <script src="assets/js/lib/jquery-3.4.1.min.js"></script>
+    <script src="<?=base_url()?>public/assets/js/lib/jquery-3.4.1.min.js"></script>
     <!-- Bootstrap-->
-    <script src="assets/js/lib/popper.min.js"></script>
-    <script src="assets/js/lib/bootstrap.min.js"></script>
+    <script src="<?=base_url()?>public/assets/js/lib/popper.min.js"></script>
+    <script src="<?=base_url()?>public/assets/js/lib/bootstrap.min.js"></script>
     <!-- Ionicons -->
     <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
     <!-- Owl Carousel -->
-    <script src="assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="<?=base_url()?>public/assets/js/plugins/owl-carousel/owl.carousel.min.js"></script>
     <!-- jQuery Circle Progress -->
-    <script src="assets/js/plugins/jquery-circle-progress/circle-progress.min.js"></script>
+    <script src="<?=base_url()?>public/assets/js/plugins/jquery-circle-progress/circle-progress.min.js"></script>
     <!-- Base Js File -->
-    <script src="assets/js/base.js"></script>
+    <script src="<?=base_url()?>public/assets/js/base.js"></script>
 
 
 </body>

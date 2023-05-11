@@ -42,7 +42,7 @@ class PresensiController extends BaseController
 		$data = base64_decode($img);
         $fileName = $nik .'-'.date('Y-m-d');
         $fileName .= (!$cekStatusAbsen) ? '-M.png' : '-P.png';
-		$file = 'assets/img/presensi/'. $fileName;
+		$file = 'public/assets/img/presensi/'. $fileName;
 		$success = file_put_contents($file, $data);
 
         if(!$cekStatusAbsen){
@@ -51,6 +51,7 @@ class PresensiController extends BaseController
             'tgl_presensi' => date('Y-m-d'),
             'nik' => $nik,
             'foto_masuk' => $fileName,
+            'foto_pulang' => 'avatar.jpg',
             'jam_masuk' => date('H:i:s'),
             'lokasi_masuk' => $lokasi,
             'status' => 0,

@@ -34,7 +34,7 @@
         <!-- <form action="/presensi" method="POST"> -->
             <div class="row" style="margin-top:65px;">
                 <div class="col">
-                    <input type="hidden" name="lokasi" id="lokasi">
+                    <input type="text" name="lokasi" id="lokasi">
                     <div class="webcame"> </div>
                 </div>
             </div>
@@ -54,18 +54,18 @@
             </div>
 
             <audio id="sound-masuk">
-                <source src="<?= base_url() ?>assets/sound/masuk.mp3" type="audio/mpeg">
+                <source src="<?= base_url() ?>public/assets/sound/masuk.mp3" type="audio/mpeg">
             </audio>
 
             <audio id="sound-pulang">
-                <source src="<?= base_url() ?>assets/sound/pulang.mp3" type="audio/mpeg">
+                <source src="<?= base_url() ?>public/assets/sound/pulang.mp3" type="audio/mpeg">
             </audio>
 
         </div>
 
-        <script src="<?= base_url() ?>/assets/js/lib/jquery-3.4.1.min.js"></script>
-        <script src="<?= base_url() ?>/assets/js/lib/webcame.js"></script>
-    <script src="<?= base_url() ?>/assets/maps/leaflet.js"></script>
+        <script src="<?= base_url() ?>public/assets/js/lib/jquery-3.4.1.min.js"></script>
+        <script src="<?= base_url() ?>public/assets/js/lib/webcame.js"></script>
+    <script src="<?= base_url() ?>public/assets/maps/leaflet.js"></script>
         <script>
       $(function(){
 

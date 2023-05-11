@@ -5,7 +5,7 @@
 <div class="section" id="user-section">
 <div id="user-detail">
   <div class="avatar">
-    <img src="assets/img/sample/avatar/avatar1.jpg" alt="avatar" class="imaged w64 rounded">
+    <img src="<?= base_url() ?>public/assets/img/sample/avatar/avatar1.jpg" alt="avatar" class="imaged w64 rounded">
    </div>
     <div id="user-info">
         <h2 id="user-name"><?= strtoupper(session()->get('username')) ?></h2>
@@ -20,42 +20,34 @@
         <div class="list-menu">
             <div class="item-menu text-center">
                 <div class="menu-icon">
-                    <a href="" class="green" style="font-size: 40px;">
-                        <ion-icon name="person-sharp"></ion-icon>
-                    </a>
+                    <div style="width:100%; border:2px solid green; border-radius:50%; padding:10px;">
+                        12
+                    </div>
                 </div>
                 <div class="menu-name">
-                    <span class="text-center">Profil</span>
+                    <span class="text-center">Hadir</span>
                 </div>
             </div>
+
             <div class="item-menu text-center">
                 <div class="menu-icon">
-                    <a href="" class="danger" style="font-size: 40px;">
-                        <ion-icon name="calendar-number"></ion-icon>
-                    </a>
+                    <div style="width:100%; border:2px solid orange; border-radius:50%; padding:10px;">
+                        12
+                    </div>
                 </div>
                 <div class="menu-name">
-                    <span class="text-center">Cuti</span>
+                    <span class="text-center">Sakit</span>
                 </div>
             </div>
+
             <div class="item-menu text-center">
                 <div class="menu-icon">
-                    <a href="" class="warning" style="font-size: 40px;">
-                        <ion-icon name="document-text"></ion-icon>
-                    </a>
+                    <div style="width:100%; border:2px solid red; border-radius:50%; padding:10px;">
+                        12
+                    </div>
                 </div>
                 <div class="menu-name">
-                    <span class="text-center">Histori</span>
-                </div>
-            </div>
-            <div class="item-menu text-center">
-                <div class="menu-icon">
-                    <a href="" class="orange" style="font-size: 40px;">
-                        <ion-icon name="location"></ion-icon>
-                    </a>
-                </div>
-                <div class="menu-name">
-                    Lokasi
+                    <span class="text-center">Izin</span>
                 </div>
             </div>
         </div>
@@ -73,9 +65,9 @@
                         <div class="iconpresence">
                         <div class="avatar">
                             <?php
-                            $image = base_url('assets/img/sample/avatar/avatar1.jpg');
+                            $image = base_url('public/assets/img/presensi/avatar.jpg');
                                 if($user){
-                                    $image = base_url('assets/img/presensi/'.$user['foto_masuk']);
+                                    $image = base_url('public/assets/img/presensi/'.$user['foto_masuk']);
                                 }
                             ?>
                                 <img src="<?= $image ?>"  class="imaged rounded" width="40px">
@@ -95,9 +87,9 @@
                     <div class="presencecontent">
                         <div class="iconpresence">
                             <?php
-                            $image = base_url('assets/img/sample/avatar/avatar1.jpg');
+                            $image = base_url('public/assets/img/presensi/avatar.jpg');
                                 if($user){
-                                    $image = base_url('assets/img/presensi/'.$user['foto_pulang']);
+                                    $image = base_url('public/assets/img/presensi/'.$user['foto_pulang']);
                                 }
                             ?>
                             <img src="<?= $image ?>"  class="imaged rounded" width="40px">
@@ -118,7 +110,7 @@
         <ul class="nav nav-tabs style1" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
-                    HARI INI <?= date('Y-m-d H:i:s')?>
+                    HARI INI <?= date('Y-m-d')?>
                 </a>
             </li>
         </ul>
@@ -131,7 +123,7 @@
                     <div class="item"> 
                         <div class="icon-box bg-primary">
                             <div class="avatar">
-                                <img src="assets/img/sample/avatar/avatar1.jpg"  class="imaged rounded" width="40px">
+                                <img src="<?= base_url() ?>public/assets/img/sample/avatar/avatar1.jpg"  class="imaged rounded" width="40px">
                             </div>
                         </div>
                         <div class="in">
