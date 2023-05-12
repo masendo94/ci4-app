@@ -55,6 +55,7 @@ class LoginController extends BaseController
             $sesionData = [
                 'username'  => $karyawan['username'] ,
                 'nik'     => $karyawan['nik'],
+                'id_cabang'     => $karyawan['id_cabang'],
                 'logged_in' => true,
             ];
             session()->set($sesionData);

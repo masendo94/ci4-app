@@ -18,6 +18,22 @@ class PresensiModel extends Model
         return $this->where(['nik' => $nik, 'tgl_presensi' => date('Y-m-d') ])->first();
     }
 
+    public function getAbsenHarian($id_cabang)
+    {
+        $db      = \Config\Database::connect();
+
+        $data = $db->table('tbl_karyawan')
+        ->select('username, foto_masuk, jam_masuk, terlambat')
+        ->join('tbl_presensi', 'tbl_karyawan.nik = tbl_presensi.nik')
+        ->where('tgl_presensi', date('Y-m-d'))
+        ->where('tbl_presensi.status', 0)
+        ->where('tbl_karyawan.id_cabang', $id_cabang)
+        ->orderBy('jam_masuk', 'DESC')
+        ->get()->getResult();
+        
+        return $data;
+    }
+
     
 
 }

@@ -1,7 +1,6 @@
 <?= $this->extend('template/layout_karyawan') ?>
 
 <?= $this->section('content') ?>
-        
 <div class="section" id="user-section">
 <div id="user-detail">
   <div class="avatar">
@@ -25,7 +24,7 @@
                     </div>
                 </div>
                 <div class="menu-name">
-                    <span class="text-center">Hadir</span>
+                    <span class="text-center small">Hadir</span>
                 </div>
             </div>
 
@@ -36,7 +35,7 @@
                     </div>
                 </div>
                 <div class="menu-name">
-                    <span class="text-center">Sakit</span>
+                    <span class="text-center small">Sakit</span>
                 </div>
             </div>
 
@@ -47,7 +46,18 @@
                     </div>
                 </div>
                 <div class="menu-name">
-                    <span class="text-center">Izin</span>
+                    <span class="text-center small">Izin</span>
+                </div>
+            </div>
+
+            <div class="item-menu text-center">
+                <div class="menu-icon">
+                    <div style="width:100%; border:2px solid red; border-radius:50%; padding:10px;">
+                        12
+                    </div>
+                </div>
+                <div class="menu-name">
+                    <span class="text-center small">Terlambat</span>
                 </div>
             </div>
         </div>
@@ -118,21 +128,21 @@
     <div class="tab-content mt-2" style="margin-bottom:100px;">
         <div class="tab-pane fade show active" id="home" role="tabpanel">
             <ul class="listview image-listview">
-            <?php for($i=1; $i<10; $i++) :?>
+            <?php foreach($absensi as $row) :?>
                 <li>
                     <div class="item"> 
                         <div class="icon-box bg-primary">
                             <div class="avatar">
-                                <img src="<?= base_url() ?>public/assets/img/sample/avatar/avatar1.jpg"  class="imaged rounded" width="40px">
+                                <img src="<?= base_url('public/assets/img/presensi/'.$row->foto_masuk) ?>"  class="imaged rounded" width="40px">
                             </div>
                         </div>
                         <div class="in">
-                            <div>ENDO</div>
-                            <span class="badge badge-success">08:00</span>
+                            <div><?=strtoupper($row->username)?></div>
+                            <span class="badge badge-<?= ($row->terlambat == 0) ? 'success' : 'danger' ?>"><?=$row->jam_masuk?></span>
                         </div>
                     </div>
                 </li>
-                <?php endfor; ?>
+                <?php endforeach; ?>
             </ul>
         </div>
 

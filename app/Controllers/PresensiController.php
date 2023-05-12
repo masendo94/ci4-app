@@ -19,6 +19,7 @@ class PresensiController extends BaseController
     {
         $data = [
             'user' => $this->presensiModel->cekAbsen( session()->get('nik'), 'date' ),
+            'absensi' => $this->presensiModel->getAbsenHarian( session()->get('id_cabang')),
         ];
         
         return view('presensi/home', $data);
@@ -72,6 +73,15 @@ class PresensiController extends BaseController
 
         if(!$cekStatusAbsen){
 
+            // menghitung keterlambatan
+            $jam_masuk = strtotime('07:00'); // jam masuk kantor
+            $jam_absen = strtotime(date('H:i')); // jam absen karyawan
+
+            // hitung selisih waktu dalam menit
+            $selisih_menit = round(abs($jam_absen - $jam_masuk) / 60);
+            $terlambat = ($selisih_menit > 0 ) ? 1 : 0;
+
+
         $data = [
             'tgl_presensi' => date('Y-m-d'),
             'nik' => $nik,
@@ -80,8 +90,8 @@ class PresensiController extends BaseController
             'jam_masuk' => date('H:i:s'),
             'lokasi_masuk' => $lokasi,
             'status' => 0,
-            'terlambat' => 0,
-            'jml_terlambat' => 0,
+            'terlambat' => $terlambat,
+            'jml_terlambat' => $selisih_menit,
             'sift' => 1
         ];
 
